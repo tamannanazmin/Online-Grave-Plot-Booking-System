@@ -1,0 +1,52 @@
+﻿@model GraveBooking.Models.ViewModel
+@{
+    ViewBag.Title = "detailsPage";
+}
+<div class="card">
+    <div class="card-body">
+            <div class="row">
+
+                @foreach (var emp in Model.graveDescriptions)
+                {
+                    <div class="col-md-12">
+                        <div>
+                            <img src="@Url.Content(emp.posterImage)" runat="server" alt="@emp.graveyardName" style="width:1000px;margin-left:250px;margin-top:50px;height: 350px;">
+                            <div class="mt-auto" style="width:300px;">
+
+                                <h4 class="mt-2" style="width:1000px;margin-left:250px;text-align:center;">@emp.graveyardName</h4>
+
+                                <h5 class="mt-2" style="width:1000px;margin-left:250px;text-align:center;">Plot capacity:@emp.numberOfPlots</h5>
+                                <h5 class="mt-2" style="width:1000px;margin-left:250px;text-align:center;">Available Plot:@emp.availablePlot</h5>
+                                <h5 class="mt-2" style="width:1000px;margin-left:250px;text-align:center;">Location:@emp.location</h5>
+                                <h5 class="mt-2" style="width:1000px;margin-left:250px;text-align:center;">Contact No:@emp.contact</h5>
+                                <h5 class="mt-2" style="width:1000px;margin-left:250px;text-align:center;">Plot Price:@emp.plotPrice taka</h5>
+                                <h5 style="width:1000px;margin-left:250px;text-align:center;">AuthorName:@emp.authorName</h5>
+
+                            </div>
+
+                            <a class="mt-auto" href="@Url.Action("choosePlot", "ownerInfo")"><button class="buttonNormal" style="width:1000px;margin-left:250px;text-align:center;background:lightslategray;">Book a plot</button></a>
+
+                            @{ Session["graveyardId"] = emp.graveyardId; }
+                            @{ Session["MapLoc"] = emp.location; }
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+    </div>
+</div>
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <div>
+
+                                @{var id = Session["MapLoc"];}
+                                <iframe width="1000" height="800" src="https://maps.google.com/maps?q=@id&output=embed"></iframe>
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+
+          

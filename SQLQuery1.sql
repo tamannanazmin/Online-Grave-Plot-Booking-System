@@ -1,0 +1,1 @@
+﻿insert into graveDescription(graveyardName,authorName,numberOfPlots,plotPrice,posterImage,adminId) values ('azimpur','samir','100','10','~/Media/Images/poster/0_0_anhu_0020.jpg','1')

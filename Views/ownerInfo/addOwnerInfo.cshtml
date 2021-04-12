@@ -1,0 +1,195 @@
+﻿@model GraveBooking.Models.ViewModel
+@{    ViewBag.Title = "addOwnerInfo";
+}
+@Styles.Render("~/Content/css/profile")
+
+<div class="container-fluid mt-3">
+    <div class="row ">
+        <div class=" col-lg-3">
+
+        </div>
+        <div class=" col-lg-7 autoMargin">
+
+            <div class="row">
+
+
+                <div class="col-md-3 d-flex">
+                    <div class="card card-default mt-4 mb-3">
+                        <a href="" data-toggle="modal" data-target="#modalAddBook"><img class="mt-4 plusImage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Plus_symbol.svg/1200px-Plus_symbol.svg.png" alt=""></a>
+                        <h5 class="mt-4"><b>Add Content</b></h5>
+
+                        <p class="mt-auto"><button class="buttonOpen" data-toggle="modal" data-target="">Open</button></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="a modal fade" id="modalAddBook" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Owner Info</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="myForm" action="@Url.Action("addOwnerInfo", "ownerInfo")" method="post" enctype="multipart/form-data">
+
+                    <div class="modal-body mx-3">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input class="form-control" type="text" name="fullName" placeholder="Enter full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select class="form-control" name="gender" id="gender">
+                                <option>Female</option>
+                                <option>Male</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fatherName">Father's Name:</label>
+                            <input class="form-control" type="text" name="fatherName" placeholder="Enter Father Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="motherName">Mother's Name:</label>
+                            <input class="form-control" type="text" name="motherName" placeholder="Enter Mother Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="profession">Profession:</label>
+                            <input class="form-control" type="text" name="profession" placeholder="Enter profession">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Contact no:</label>
+                            <input class="form-control" type="text" name="phone" placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input class="form-control" type="text" name="email" placeholder="Enter Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Permanent Address:</label>
+                            <input class="form-control" type="text" name="address" placeholder="Enter Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="Image">Upload Image:</label>
+                            <input type="file" id="myFile" name="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="nid">NID No:</label>
+                            <input class="form-control" type="text" name="nid" placeholder="Enter NID">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date Of Birth:</label>
+                            <input class="form-control" name="dateOfBirth" type="date" value="2011-08-19" id="example-date-input">
+                        </div>
+                        <!--<div class="form-group">
+        <label for="plotId">Plot no:</label>
+        <input class="form-control" type="text" name="plotId" placeholder="Enter Plot NO">
+    </div>-->
+                        
+                        <!--<div class="form-group">
+        <label for="totalPrice">Total Price:</label>
+        <input class="form-control" type="text" name="totalPrice" placeholder="Enter Total Price">
+    </div>-->
+                        <div class="form-group">
+                            <label for="bankName">Bank Name:</label>
+                            <input class="form-control" type="text" name="bankName" placeholder="Enter Bank Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="branchName">Branch Name:</label>
+                            <input class="form-control" type="text" name="branchName" placeholder="Enter Branch Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="branchAddress">Branch Address:</label>
+                            <input class="form-control" type="text" name="branchAddress" placeholder="Enter Branch Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="dd">Cash/Cheque/DD/TT No:</label>
+                            <input class="form-control" type="text" name="dd" placeholder="Enter Cash/Cheque/DD/TT No">
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-success mt-2" type="submit" onclick="getModal()">Apply</button>
+                    </div>
+                </form>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    >
+</div>
+
+
+<script>
+    function getModal() {
+
+        document.getElementById("myForm").submit();
+
+    }
+</script>
+
+<script>
+    var x = document.getElementById("check");
+
+    function getLocation() {
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        position.enableHighAccuracy = true;
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+
+        var apikey = 'c1e72ba1314f41719598a10e23f3f7dd';
+        var latitude = '51.0';
+        var longitude = '7.0';
+
+        var api_url = 'https://api.opencagedata.com/geocode/v1/json'
+
+        var request_url = api_url
+            + '?'
+            + 'key=' + apikey
+            + '&q=' + encodeURIComponent(position.coords.latitude + ',' + position.coords.longitude)
+            + '&pretty=1'
+            + '&no_annotations=1';
+        //x.innerHTML=request_url;
+        $.get({
+            url: request_url,
+            success: function (data) {
+                console.log(data);
+                x.innerHTML = data.results[0].formatted;
+                document.getElementById("check").value = data.results[0].formatted;
+            }
+
+
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

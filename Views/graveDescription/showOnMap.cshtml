@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "showOnMap";
+}
+
+<form id="myForm" style="margin-left:100px;margin-right:100px;" action="@Url.Action("ShowOnMap", "graveDescription")" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <div>
+            <iframe width="1500" height="800" src="https://maps.google.com/maps?q=Dhaka&output=embed"></iframe>
+        </div>
+
+        <input class="form-control" type="text" id="location" name="location" placeholder="Location...">
+        <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-success mt-2" style="background:lightblue;color:white;width:200px;" type="submit" onclick="getModal()">Search</button>
+        </div>
+    </div>
+</form>
+    <script>
+
+        function getModal() {
+
+            document.getElementById("myForm").submit();
+
+        }
+
+    </script>
+

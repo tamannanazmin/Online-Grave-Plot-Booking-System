@@ -1,0 +1,72 @@
+﻿@model GraveBooking.Models.ViewModel
+@{
+    ViewBag.Title = "ShowExistingOwnerInfo";
+}
+
+
+<div>
+    @foreach(var v in Model.owners)
+    {
+        <div class="form-group">
+             <label>FullName:</label>
+             <label for="fullName" name="fullName">@v.fullName</label>
+        </div>
+
+        <div class="form-group">
+            <label>Gender:</label>
+            <label for="gender" name="gender">@v.gender</label>
+        </div>
+
+        <div class="form-group">
+            <label>Fathers's name:</label>
+            <label for="fatherName" name="fatherName">@v.fatherName</label>
+        </div>
+
+        <div class="form-group">
+            <label>Mother's name:</label>
+            <label for="motherName" name="motherName">@v.motherName</label>
+        </div>
+
+        <div class="form-group">
+            <label>Profession:</label>
+            <label for="profession" name="profession">@v.profession:</label>
+        </div>
+
+        <div class="form-group">
+            <label>Phone:</label>
+            <label for="phone" name="phone">@v.phone</label>
+        </div>
+
+        <div class="form-group">
+            <label>Email address:</label>
+            <label for="email" name="email">@v.email</label>
+        </div>
+
+        <div class="form-group">
+            <label>Permanent Address:</label>
+            <label for="address" name="address">@v.address</label>
+        </div>
+
+        <div class="form-group">
+            <label>NID No:</label>
+            <label for="nid" name="nid">@v.nid</label>
+        </div>
+
+        <div class="form-group">
+            <label>Date Of Birth:</label>
+            <label for="dateOfBirth" name="dateOfBirth">@v.dateOfBirth</label>
+        </div>
+        break;
+    }
+        @foreach(var gd in Model.graveDescriptions)
+        {
+<div class="form-group">
+    <label>Total Price:</label>
+    <label for="totalPrice" name="totalPrice">@gd.plotPrice</label>
+</div>
+        }
+        <a class="mt-auto" href="@Url.Action("addInfoToExistingOwner", "ownerInfo")"><button class="buttonNormal" style="width:1000px;margin-left:250px;text-align:center;background:lightblue;border-top-left-radius: 16px;border-top-right-radius: 16px;border-bottom-left-radius: 16px;border-bottom-right-radius: 16px;">Proceed</button></a>
+    
+
+</div>
+

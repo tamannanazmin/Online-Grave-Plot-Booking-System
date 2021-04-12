@@ -1,0 +1,90 @@
+﻿@model GraveBooking.Models.ViewModel
+@{
+    ViewBag.Title = "viewGravePost";
+}
+<style>
+    .wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    img {
+        width: 80%;
+        height: auto;
+    }
+
+    .search-wrapper {
+        position: absolute;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        padding: 15px;
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+
+        .search-wrapper input {
+            width: 100%;
+        }
+
+</style>
+
+<div class="wrapper" style="margin-left:50px;margin-right:50px;margin-top:0px">
+    <img src="~/Media/Images/homepage.png" alt="" class="rounded" style="width:1580px;height:500px;border-radius:50px">
+    <form action="@Url.Action("viewGravePost","viewGrave")" method="post">
+        <div class="search-wrapper">
+            <div class="input-group">
+                <input type="text" class="form-control" id="search_form" placeholder="Search" name="search" style=" position: absolute; width: 500px;height:200px margin-left:20px; margin-top: 5px; padding: 18px; font-size: 25px;  border-top-left-radius: 8px; border-bottom-left-radius: 8px;background-color:white;border-color:white">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" id="navSearchBtn" type="submit" style="margin-top:5px;margin-left: 220px; background: lightblue;width: 70px; border-radius: 0 0 0 0; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+@foreach (var emp in Model.graveDescriptions)
+{
+
+    <nav class="navbar navbar-expand-md  mt-2">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+
+            <img src="@Url.Content(emp.posterImage)" runat="server" alt="@emp.graveyardName" style="width:500px;margin-top:50px;height: 350px;">
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+
+            <div class="mt-auto" style="width:300px;">
+                <h4 class="mt-2" style="width: 300px; margin-left: 80px;text-align: center;color:white;">dfghertg</h4>
+                <h4 class="mt-2" style="width: 300px; margin-left: 80px;text-align: center;color:white;">dfghertg</h4>
+                <h4 class="mt-2" style="width: 300px; margin-left: 80px;text-align: center; ">@emp.graveyardName</h4>
+                <h5 class="mt-2" style="width: 300px; margin-left: 80px; text-align: center; ">Location:@emp.location</h5>
+                <h5 class="mt-2" style="width: 300px; margin-left: 80px; text-align: center; ">Contact No:@emp.contact</h5>
+                
+                
+            </div>
+
+            @{ /*Session["graveyardId"] = emp.graveyardId;*/ }
+
+            <a class="mt-auto" href="@Url.Action("detailsPage", "viewGrave",new { id = @emp.graveyardId })"><button class="buttonNormal" style="text-align:center;background:lightslategray;">View Details</button></a>
+
+
+            @foreach (var ad in Model.admins.Where(i => i.adminId == emp.adminId))
+            {
+                <!-- <p class="text" style="text-align:center;color:blue;">Posted by <a class="text" href="" style="text-decoration: none;margin-left:30px;text-align:center;color: blue"></a></p>-->
+            }
+        </div>
+        <div class="col-md-1">
+        </div>
+    </nav>
+
+}

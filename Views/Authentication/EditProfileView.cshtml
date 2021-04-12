@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "EditProfileView";
+}
+
+@Styles.Render("~/Content/css/login")
+<div class="lo">
+    <nav class="navbar navbar-expand-md  mt-2">
+        <div class="col-md-2">
+        </div>
+
+
+        <div class="col-md-8">
+
+            <form id="form" class="f" action="@Url.Action("EditProfileView", "Authentication")" method="post">
+                <div class="h3 mb-4" style="text-align: center; font-weight: bold;font-size:35px;">Edit Profile</div>
+               
+                {
+            <input type="text" style="background:lightblue;height:2px;width:100%;border:lightblue;" />
+                <div class="fm mt-2">
+                    <label for="adminPhone">Name</label>
+                    <input type="text" placeholder="Enter your name" id="name" name="name" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="fm">
+                    <label for="AdminPassword">Email</label>
+                    <input type="password" placeholder="Enter your contact" id="email" name="email"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="fm">
+                    <label for="adminPhone">Contact</label>
+                    <input type="text" placeholder="Enter your feedback" id="contact" name="Contact" style="height:100px;" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <button class="but" style="background-color: darkred;border:lightslategray;color:white;">Update</button>
+                }
+
+            </form>
+        </div>
+
+        <div class="col-md-2">
+        </div>
+    </nav>
+</div>
+
+

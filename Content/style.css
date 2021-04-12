@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+#navBarName {
+    text-align: center;
+    
+    font-weight: bold;
+}
+
+.fa-search {
+    font-size: 20px;
+}
+
+.fa-search:hover{
+font-size:20px;
+color:white;
+}
+
+
+
+.form-control:focus {
+    background-color:#fbfcfb;
+}
+.navButtons{
+    font-weight: bold;
+    margin-left:10px;
+    font-size: 20px;
+
+}
+
+#overlay {
+background-color:#C9151B;
+margin-left:60px;
+position:absolute;
+width:280px;
+margin-top:8px;
+height:100%
+
+}
+#overlayText
+{
+color:white;
+font-family: 'Advent Pro', sans-serif;
+margin-left:16px;
+margin-top:8px;
+font-weight:bold;
+}
+.navItems{
+margin-left:250px;
+
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:1;
+}
+
+.spacer
+{
+    width: 100%;
+    height: 5px;
+}
+#categoryList{
+margin-top:1.5px;
+margin-left:78px;
+width:280px;
+}
+@media screen and (max-width: 1018px) {
+
+
+
+ #categoryList{
+margin-top:34px;
+}
+}
+.card-default {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+
+
+.price {
+  color: black;
+  font-size: 16px;
+  font-weight:bold;
+}
+
+.buttonNormal {
+
+  border: none;
+  outline: 0;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+
+
+@media screen and (max-width: 768px) {
+#overlay{
+ display: none;
+ }
+
+
+ #categoryList{
+ display: none;
+}
+}
+.autoMargin{
+ margin-left: 50px;
+}
+
+@media screen and (max-width: 1300px) and (min-width: 768px) {
+.autoMargin{
+margin-top:50px;
+margin-left: 150px;
+}
+}
+@media screen and (max-width: 768px) {
+.autoMargin{
+margin-top:200px
+}
+}
+.list-group-item-dark {
+background-color: white;
+}
+
+.list-group-item-mine :hover {
+
+
+}

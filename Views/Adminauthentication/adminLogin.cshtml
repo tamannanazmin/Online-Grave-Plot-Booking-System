@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "adminLogin";
+}
+
+@Styles.Render("~/Content/css/login")
+<div class="lo">
+    <nav class="navbar navbar-expand-md  mt-2">
+        <div class="col-md-6">
+            <div class="ima" style="margin-left:10px;">
+                <img src="~/media/images/p.jpg" alt="plot" style="width:100%;" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form id="form" class="f" action="@Url.Action("adminLogin", "Adminauthentication")" method="post">
+                &nbsp;
+                <div class="h3 mb-4" style="text-align: center; font-weight: bold;font-size:35px;">Sign In</div>
+                <input type="text" style="background:lightblue;height:2px;width:100%;border:lightblue;" />
+                <div class="fm mt-4">
+                    <label for="adminPhone">Contact</label>
+                    <input type="text" placeholder="Enter your contact" id="phone" name="adminPhone" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="fm">
+                    <label for="AdminPassword">Password</label>
+                    <input type="password" placeholder="Enter your password" id="password" name="adminPassword" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <button class="but" style="background:red;border:red;">Sign In</button>
+                <div class="mt-2" style="text-align: center"> Don't have an account ? <a class="text-danger" href="@Url.Action("adminRegistration", "Adminauthentication")">Sign Up</a> </div>
+                &nbsp;&nbsp;
+
+            </form>
+        </div>
+    </nav>
+</div>
+    
+
+
+
+@Scripts.Render("~/bundles/login")
+
+
+

@@ -1,0 +1,164 @@
+﻿@model GraveBooking.Models.ViewModel
+@{
+    ViewBag.Title = "viewOwnerInfo";
+}
+
+
+<style>
+    .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+
+        .active, .collapsible:hover {
+            background-color: #555;
+        }
+
+    .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #f1f1f1;
+        width: 100%;
+    }
+</style>
+
+
+<div class="card-body">
+    <div class="row">
+        <div class="col">
+            <center>
+                <h1 class="card-text" style="text-align:center">Owners List</h1>
+        </div>
+        <!--
+    <div class="col">
+        <form action="//Url.Action("viewOwnerInfo", "viewOwnerInfo")" method="post">
+
+            <div class="input-group">
+                <input type="text" class="form-control" id="search_form" placeholder="Search" name="searchOwner" style=" position: absolute; width: 400px; margin-left:20px; margin-top: 5px; padding: 18px; font-size: 15px; border-color: lightslategray; border-width: 3px; border-top-left-radius: 8px; border-bottom-left-radius: 8px;">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" id="navSearchBtn" type="submit" style="margin-top:5px;margin-left: 420px; background: lightslategray; width: 70px; padding: 7px; border-width: 2px; border-radius: 0 0 0 0; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>-->
+        </center>
+    </div>
+
+
+        @if (Session["admin"] != null)
+        {
+            <div class="row" style="margin:50px">
+                @foreach (var v in Model.owners)
+                {
+                    <button type="button" class="collapsible">View details</button>
+                    <div class="content">
+                        <div class="form-group">
+                            <label>FullName:</label>
+                            <label>@v.fullName</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender:</label>
+                            <label for="gender" name="gender">@v.gender</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Fathers's name:</label>
+                            <label for="fatherName" name="fatherName">@v.fatherName</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mother's name:</label>
+                            <label for="motherName" name="motherName">@v.motherName</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Profession:</label>
+                            <label for="profession" name="profession">@v.profession:</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone:</label>
+                            <label for="phone" name="phone">@v.phone</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email address:</label>
+                            <label for="email" name="email">@v.email</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Permanent Address:</label>
+                            <label for="address" name="address">@v.address</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>NID No:</label>
+                            <label for="nid" name="nid">@v.nid</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date Of Birth:</label>
+                            <label for="dateOfBirth" name="dateOfBirth">@v.dateOfBirth</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Plot Number:</label>
+                            <label for="dateOfBirth" name="dateOfBirth">@v.plotId</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Price:</label>
+                            <label for="dateOfBirth" name="dateOfBirth">@v.totalPrice </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bank Name:</label>
+                            <label for="dateOfBirth" name="dateOfBirth">@v.bankName</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Branch Name:</label>
+                            <label for="dateOfBirth" name="dateOfBirth">@v.branchName</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Graveyard Name:</label>
+                            <label for="dateOfBirth" name="dateOfBirth">@v.photo</label>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
+</script>
+
+

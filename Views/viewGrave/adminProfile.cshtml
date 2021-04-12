@@ -1,0 +1,86 @@
+﻿@model GraveBooking.Models.ViewModel
+@{
+    ViewBag.Title = "adminProfile";
+}
+
+<div class="card" style="background-color:lightgray;margin-left:100px;margin-right:100px">
+    <h1 class="card-text" style="margin-bottom:20px;margin-top:20px;text-align:center">Admin Dashboard</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col" style="margin-left:150px">
+                <div class="card" style="width:300px">
+                    <img class="card-img-top" src="~/Media/Images/adminMenu/profile.png" alt="Card image">
+                    <div class="card-body">
+                        <center>
+                             <a class="mt-auto" href="@Url.Action("updateAdminProfile","adminProfile")"><button class="btn btn-primary">Edit Profile</button></a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width:300px">
+                    <img class="card-img-top" src="~/Media/Images/adminMenu/manage.png" alt="Card image">
+                    <div class="card-body">
+                        <center>
+                            <a class="mt-auto" href="@Url.Action("DisplayGraveTable","viewGrave")"><button class="btn btn-primary">Manage Graves</button></a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100"></div>
+            <div class="h-100"></div>
+
+            <div class="col" style="margin-top:40px;margin-left:150px;margin-bottom:40px">
+                <div class="card" style="width:300px">
+                    <img class="card-img-top" src="~/Media/Images/adminMenu/add.png" alt="Card image">
+                    <div class="card-body">
+                        <center>
+                            <a class="mt-auto" href="@Url.Action("addDescription","graveDescription")"><button class="btn btn-primary">Add Graveyard</button></a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="margin-top:40px;margin-bottom:40px">
+                <div class="card" style="width:300px">
+                    <img class="card-img-top" src="~/Media/Images/adminMenu/search.png" alt="Card image">
+                    <div class="card-body">
+                        <center>
+                            <a class="mt-auto" href="@Url.Action("viewOwnerInfo","viewOwnerInfo")"><button class="btn btn-primary">View Owners</button></a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div class="col-md-12">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <center>
+            <form id="form" class="f" action="//Url.Action(" adminProfile", "viewGrave" )" method="post">
+                <div class="card">
+                    <div class="card-body">
+                        //foreach (var emp in Model.admins)
+                        {
+                        <img src="~/Media/Images/Users/default.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                        <h3>//emp.adminName</h3>
+                        <h5>Edit Profile</h5>
+                        <div class="mt-2" style="text-align: center"><a class="text-danger" href="@Url.Action("viewOwnerInfo", "viewOwnerInfo")">Owners list</a> </div>
+                        <h5>Edit graves</h5>
+
+                        }
+                    </div>
+                </div>
+            </form>
+        </center>
+    </div>
+
+    <div class="col-md-6"></div>
+    <div class="col-md-1"></div>
+</div>
+-->

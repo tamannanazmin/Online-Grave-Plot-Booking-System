@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "map";
+}
+<form id="myForm" style="margin-left:100px;margin-right:100px;" action="@Url.Action("ReturnToGraveDes", "graveDescription")" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+
+        <div>
+            @{var id = Session["MapLoc"];}
+            <iframe width="1000" height="800" src="https://maps.google.com/maps?q=@id&output=embed"></iframe>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+            <button class="btn btn-success mt-2" style="background:lightblue;color:white;width:200px;" type="submit" onclick="getModal()">Pick this location</button>
+        </div>
+    </div>
+</form>
+

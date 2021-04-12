@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "DisplayGraveTable";
+}
+
+<div class="card">
+    <div class="card-body">
+        <table class="table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="font-size:24px;height:80px">Graveyard Name</th>
+                    <th style="font-size:24px;height:80px">Total Plots</th>
+                    <th style="font-size:24px;height:80px">Available</th>
+                    <th style="font-size:24px;height:80px">Price(per plot)</th>
+               
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model.graveDescriptions)
+                {
+                <tr>
+                    <td style="font-size:20px;height:60px">@emp.graveyardName</td>
+                    <td style="font-size:20px;height:60px">@emp.numberOfPlots</td>
+                    <td style="font-size:20px;height:60px">@emp.availablePlot</td>
+                    <td style="font-size:20px;height:60px">@emp.plotPrice</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

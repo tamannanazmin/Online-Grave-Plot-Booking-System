@@ -1,0 +1,4 @@
+1. Checks if already owner and then sends to respective page
+2. Adds new owner
+3. List to show unbooked plots showing error when adding
+4. Updates available plot no after adding owner 

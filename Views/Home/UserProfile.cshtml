@@ -1,0 +1,190 @@
+﻿
+@model GraveBooking.Models.ViewModel
+@{ ViewBag.Title = "UserProfile";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #myDIV {
+            width: 100%;
+            //padding: 50px 0;
+            text-align: center;
+            //background-color: lightblue;
+            margin-left: 10px;
+            margin-right:10px;
+            margin-bottom:20px;
+            display: none;
+        }
+
+        #myDIV1 {
+            width: 100%;
+            //padding: 50px 0;
+            text-align: center;
+            //background-color: lightblue;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card" style="background-color:ThreeDLightShadow;margin-left:100px;margin-right:100px;margin-top:40px;margin-bottom:40px">
+        <h1 class="card-text" style="margin-bottom:20px;margin-top:20px;text-align:center">User Dashboard</h1>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <div class="card"  style="margin-bottom: 50px">
+                    <div class="card-body">
+                        <center>
+                            @foreach (var emp in Model.Users)
+                            {
+                                <img src="~/Media/Images/Users/default.png" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                                <br />
+                                <h2>@emp.userName</h2>
+                                <br />
+                                <button onclick="myFunction()" style="margin:10px">Edit Profile</button>
+                                <br />
+                                <button onclick="myFunction1()" style="margin:10px">View purchases</button>
+                                <br />
+                                <a class="mt-auto" href="@Url.Action("viewGravePost", "viewGrave")"><button style="margin:10px">Browse</button></a>
+                                <br />
+                                <a class="mt-auto" href="@Url.Action("Logout","Authentication")"><button style="margin:10px">Sign out</button></a>
+
+
+                            }
+
+                        </center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div id="myDIV1">
+                    <div class="card">
+                        <div class="card-body">
+                            @foreach (var emp in Model.Users)
+                            {
+                                <form id="myform" class="f" action="@Url.Action("UserProfile", "Home")" method="post">
+                                    <div class="form-group" style="margin:10px">
+                                        <label for="fullName">Full Name:</label>
+                                        <input class="form-control" type="text" name="userName" value=@emp.userName>
+                                    </div>
+                                    <div class="form-group" style="margin:10px">
+                                        <label for="email">Email Address:</label>
+                                        <input class="form-control" type="email" name="email" value=@emp.email>
+                                    </div>
+                                    <div class="form-group" style="margin:10px">
+                                        <label for="Contact No:">Contact No:</label>
+                                        <input class="form-control" type="text" name="phone" value=@emp.phone>
+                                    </div>
+
+                                    <div class="modal-footer d-flex justify-content-center">
+                                        <button class="btn btn-success mt-2" style="background:#006a4e;color:white;width:200px;" type="submit" onclick="getModal()">Update</button>
+                                    </div>
+                                </form>
+                            }
+                        </div>
+                    </div>
+
+
+                </div>
+                <div id="myDIV">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="font-size:24px;height:80px">Graveyard Name</th>
+                                        <th style="font-size:24px;height:80px">Plot No</th>
+                                        <th style="font-size:24px;height:80px">Date   &   Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var emp in Model.Bookings)
+                                    {
+                                        <tr>
+                                            <td style="font-size:20px;height:60px">@emp.OwnerId</td>
+                                            <td style="font-size:20px;height:60px">@emp.GravePlotId</td>
+                                            <td style="font-size:20px;height:60px">@emp.Date</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!--  <div class="container-fluid mt-3">
+                <div class="row ">
+
+                    <div class=" col-lg-10 autoMargin">
+
+                        <div class="row"> -->
+                    <!--row er pore foeach loop
+                <div class="row-md-3 d-flex ">
+                    <div class="card card-default mt-4 mb-3"> -->
+                    <!-- <img src="//Url.Content(emp.photo)" runat="server" alt="//emp.fullName" style="width:100%;height: 180px;">
+                                            <div class="mt-auto">
+
+                                                <h5 class="mt-2"></h5>
+                                                <h5 class="mt-2"></h5>
+                                                <h5 class="mt-2"></h5>
+                                                <h5 class="mt-2"></h5>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div> -->
+
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myDIV");
+                var y = document.getElementById("myDIV1");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    y.style.display = "none";
+                } else {
+                    x.style.display = "none";
+                    y.style.display = "block";
+                }
+            }
+            function myFunction1() {
+                var y = document.getElementById("myDIV");
+                var x = document.getElementById("myDIV1");
+                if (y.style.display === "none") {
+                    y.style.display = "block";
+                    x.style.display = "none";
+                } else {
+                    y.style.display = "none";
+                    x.style.display = "block";
+                }
+            }
+        </script>
+        <script>
+            function getModal() {
+
+                document.getElementById("myForm").submit();
+
+            }
+        </script>
+    </div>
+</body>
+</html>
+
+
+
